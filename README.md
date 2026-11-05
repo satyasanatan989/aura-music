@@ -107,6 +107,22 @@ Sing along with precision:
 * Parametric 10-band equalizer.
 * Bass boost, spatial audio virtualizer, and ReplayGain loudness normalization.
 
+### 🏝️ 8. Origin Island & Dynamic Capsule Support
+* Native integration for **Vivo OriginOS Origin Island**, Xiaomi HyperOS Dynamic Notch, and Android Dynamic Island.
+* Top status pill morphs into an interactive live capsule showing animated spinning vinyl miniatures, bouncing soundwave bars, and track progress.
+* Tap to expand into a quick playback bar with animated sound volume level sliders.
+
+### 🎨 9. Animated Wallpaper-Adaptive Widgets & Sound FX
+* **Adaptive Glassmorphic Theming:** Widgets dynamically pick palettes from your static or live wallpapers with customizable frosted glass opacity, blur radius, and border glow.
+* **Spinning Vinyl Disc Widget (3x3 / 2x2):** Authentic vinyl record grooves that spin in real-time with your music and tonearm pause animation.
+* **Dynamic Sound Volume & Spectrum Visualizer (4x2):** 24-band animated dancing equalizer bars showing real-time audio amplitude, peak decibel (dB) levels, and volume swells.
+* **Acoustic Sound FX:** Interactive needle drops, tape stop slows, and tactile UI feedback.
+
+### 💻 10. Multi-Device Optimization (Android Tablets & Foldables)
+* **Android Tablets (Split Studio Mode):** Adaptive 2-column landscape layout featuring the turntable studio on the left and synchronized karaoke lyrics with queue management on the right.
+* **Foldables:** Hinge-aware responsive viewport scaling between cover screen and unfolded tablet modes.
+
+
 ---
 
 ## 📥 Download & Installation
