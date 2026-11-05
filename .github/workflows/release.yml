@@ -1,0 +1,57 @@
+name: Publish Release APKs
+
+on:
+  push:
+    tags:
+      - 'v*'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  build_release:
+    name: Build & Publish Release APKs
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up JDK 21
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v4
+        with:
+          cache-disabled: true
+
+      - name: Grant Executable Permissions
+        run: chmod +x gradlew
+
+      - name: Build Universal Release APK
+        env:
+          LASTFM_API_KEY: ${{ secrets.LASTFM_API_KEY }}
+          LASTFM_SECRET: ${{ secrets.LASTFM_SECRET }}
+          DISCORD_CLIENT_ID: ${{ secrets.DISCORD_CLIENT_ID }}
+        run: |
+          ./gradlew assembleUniversalGmsRelease --no-configuration-cache --console=plain
+
+      - name: Rename Release Artifact
+        run: |
+          mkdir -p release_assets
+          cp app/build/outputs/apk/universalGms/release/*.apk release_assets/Aura-Music-Universal-Release.apk
+          cd release_assets
+          sha256sum Aura-Music-Universal-Release.apk > checksums.txt
+
+      - name: Create GitHub Release
+        uses: softprops/action-gh-release@v2
+        with:
+          files: |
+            release_assets/Aura-Music-Universal-Release.apk
+            release_assets/checksums.txt
+          generate_release_notes: true
+          draft: false
+          prerelease: false
